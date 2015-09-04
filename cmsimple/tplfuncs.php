@@ -297,13 +297,14 @@ function sitemaplink()
  *
  * @return string HTML
  *
- * @global array  The localization of the core.
+ * @global array The localization of the core.
  */
 function printlink()
 {
     global $tx;
 
-    return '<a href="' . XH_printUrl() . '">' . $tx['menu']['print'] . '</a>';
+    return '<a href="' . XH_printUrl() . '" rel="nofollow">'
+        . $tx['menu']['print'] . '</a>';
 }
 
 /**
@@ -355,8 +356,8 @@ function mailformlink()
 /**
  * Returns the link to the login form.
  *
- * @global int    The index of the requested page.
- * @global array  The localization of the core.
+ * @global int   The index of the requested page.
+ * @global array The localization of the core.
  *
  * @return string HTML
  */
@@ -365,7 +366,8 @@ function loginlink()
     global $s, $tx;
 
     if (!XH_ADM) {
-        return a($s > -1 ? $s : 0, '&amp;login') . $tx['menu']['login'] . '</a>';
+        return a($s > -1 ? $s : 0, '&amp;login" rel="nofollow')
+            . $tx['menu']['login'] . '</a>';
     }
 }
 
